@@ -3,19 +3,30 @@ package menu.domain;
 import static menu.domain.Category.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import menu.MenuConfig;
 
 public class MenuRepository {
 
-    private static final Map<Category, Menus> menus = new HashMap<>();
+    private static final Map<Category, Menus> menusByCategory = new HashMap<>();
 
-    public static void init() {
-        menus.put(JAPANESE, new Menus(MenuConfig.getJapaneseMenus()));
-        menus.put(KOREAN, new Menus(MenuConfig.getKoreanMenus()));
-        menus.put(CHINESE, new Menus(MenuConfig.getChineseMenus()));
-        menus.put(ASIAN, new Menus(MenuConfig.getAsianMenus()));
-        menus.put(WESTERN, new Menus(MenuConfig.getWesternMenus()));
+    static {
+        menusByCategory.put(JAPANESE, new Menus(MenuConfig.getJapaneseMenus()));
+        menusByCategory.put(KOREAN, new Menus(MenuConfig.getKoreanMenus()));
+        menusByCategory.put(CHINESE, new Menus(MenuConfig.getChineseMenus()));
+        menusByCategory.put(ASIAN, new Menus(MenuConfig.getAsianMenus()));
+        menusByCategory.put(WESTERN, new Menus(MenuConfig.getWesternMenus()));
+    }
+
+    public static boolean contains(String menu) {
+        List<Menus> values = menusByCategory.values()
+                .stream()
+                .collect(Collectors.toUnmodifiableList());
+
+        return values.stream()
+                .anyMatch(menus -> menus.contains(menu));
     }
 }
