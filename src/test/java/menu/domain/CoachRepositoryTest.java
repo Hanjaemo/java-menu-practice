@@ -11,7 +11,7 @@ class CoachRepositoryTest {
 
     @DisplayName("n명의 코치를 성공적으로 등록한 경우 등록된 코치의 수는 n이다.")
     @Test
-    void size_Success_save() {
+    void save_Success() {
         // given
         List<String> inputCoaches = List.of("토미", "제임스", "포코");
 
