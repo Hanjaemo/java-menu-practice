@@ -13,4 +13,8 @@ public class Menus {
     public boolean contains(String menu) {
         return menus.contains(menu);
     }
+
+    public Set<String> getMenus() {
+        return menus;
+    }
 }

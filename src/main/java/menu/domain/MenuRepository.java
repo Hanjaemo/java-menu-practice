@@ -2,11 +2,13 @@ package menu.domain;
 
 import static menu.domain.Category.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import menu.MenuConfig;
 
 public class MenuRepository {
@@ -28,5 +30,13 @@ public class MenuRepository {
 
         return values.stream()
                 .anyMatch(menus -> menus.contains(menu));
+    }
+
+    public static List<String> get(Category category) {
+        return toList(menusByCategory.get(category));
+    }
+
+    private static ArrayList<String> toList(Menus menus) {
+        return new ArrayList<>(menus.getMenus());
     }
 }

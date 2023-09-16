@@ -1,6 +1,7 @@
 package menu.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CoachRepository {
@@ -13,5 +14,9 @@ public class CoachRepository {
 
     public static int size() {
         return coaches.size();
+    }
+
+    public static List<Coach> coaches() {
+        return Collections.unmodifiableList(coaches);
     }
 }

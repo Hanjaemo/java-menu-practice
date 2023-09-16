@@ -1,6 +1,9 @@
 package menu.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Coach {
@@ -11,6 +14,7 @@ public class Coach {
 
     private String name;
     private Set<String> unwanted = new HashSet<>();
+    private List<String> menus = new ArrayList<>();
 
     public Coach(String name) {
         validate(name);
@@ -30,12 +34,24 @@ public class Coach {
         unwanted.add(menu);
     }
 
-    private boolean contains(String menu) {
-        return unwanted.contains(menu);
+    public Set<String> unwanted() {
+        return Collections.unmodifiableSet(unwanted);
     }
 
-    public Set<String> getUnwanted() {
-        return unwanted;
+    public void addMenu(String menu) {
+        menus.add(menu);
+    }
+
+    public boolean isExists(String menu) {
+        return menus.contains(menu);
+    }
+
+    public List<String> menus() {
+        return Collections.unmodifiableList(menus);
+    }
+
+    private boolean contains(String menu) {
+        return unwanted.contains(menu);
     }
 
     private void validate(String name) {

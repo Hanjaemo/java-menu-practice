@@ -2,6 +2,8 @@ package menu.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,5 +19,20 @@ class RecommendServiceTest {
 
         // then
         assertThat(RecommendResult.categories().size()).isEqualTo(1);
+    }
+
+    @DisplayName("각 코치가 먹을 메뉴를 하나 추천하면, 코치가 먹을 메뉴 목록에 있는 메뉴 수는 1이다.")
+    @Test
+    void recommendMenu_Success() {
+        // given
+        CoachRepository.save(new Coach("토미"));
+
+        // when
+        recommendService.recommendMenu(Category.ASIAN);
+        Coach coach = CoachRepository.coaches().get(0);
+
+
+        // then
+        assertThat(coach.menus().size()).isEqualTo(1);
     }
 }

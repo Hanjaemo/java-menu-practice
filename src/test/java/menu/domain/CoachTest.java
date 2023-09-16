@@ -17,7 +17,7 @@ class CoachTest {
         coach.addUnwanted("불고기");
 
         // then
-        assertThat(coach.getUnwanted()).contains("불고기");
+        assertThat(coach.unwanted()).contains("불고기");
     }
 
     @DisplayName("존재하지 않는 메뉴를 코치가 못 먹는 메뉴로 등록하는 경우 실패한다.")
