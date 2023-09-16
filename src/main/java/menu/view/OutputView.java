@@ -11,7 +11,7 @@ public class OutputView {
         System.out.println("점심 메뉴 추천을 시작합니다.");
     }
 
-    public void printResultMessage(List<String> categories) {
+    public void printResultMessage() {
         System.out.println("메뉴 추천 결과입니다.");
     }
 
