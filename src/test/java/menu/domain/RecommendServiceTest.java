@@ -2,12 +2,24 @@ package menu.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.util.List;
-
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import menu.MenuConfig;
+
 class RecommendServiceTest {
+
+    @BeforeEach
+    void init() {
+        MenuRepository.init(new MenuConfig());
+    }
+
+    @AfterEach
+    void clear() {
+        CoachRepository.clear();
+    }
 
     private final RecommendService recommendService = new RecommendService(new RandomNumberGenerator());
     

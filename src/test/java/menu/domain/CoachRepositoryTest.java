@@ -4,10 +4,16 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CoachRepositoryTest {
+
+    @AfterEach
+    void clear() {
+        CoachRepository.clear();
+    }
 
     @DisplayName("n명의 코치를 성공적으로 등록한 경우 등록된 코치의 수는 n이다.")
     @Test
