@@ -8,19 +8,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import menu.MenuConfig;
 
 public class MenuRepository {
 
     private static final Map<Category, Menus> menusByCategory = new HashMap<>();
 
-    static {
-        menusByCategory.put(JAPANESE, new Menus(MenuConfig.getJapaneseMenus()));
-        menusByCategory.put(KOREAN, new Menus(MenuConfig.getKoreanMenus()));
-        menusByCategory.put(CHINESE, new Menus(MenuConfig.getChineseMenus()));
-        menusByCategory.put(ASIAN, new Menus(MenuConfig.getAsianMenus()));
-        menusByCategory.put(WESTERN, new Menus(MenuConfig.getWesternMenus()));
+    public static void init(MenuConfig menuConfig) {
+        menusByCategory.put(JAPANESE, new Menus(menuConfig.getJapaneseMenus()));
+        menusByCategory.put(KOREAN, new Menus(menuConfig.getKoreanMenus()));
+        menusByCategory.put(CHINESE, new Menus(menuConfig.getChineseMenus()));
+        menusByCategory.put(ASIAN, new Menus(menuConfig.getAsianMenus()));
+        menusByCategory.put(WESTERN, new Menus(menuConfig.getWesternMenus()));
     }
 
     public static boolean contains(String menu) {
