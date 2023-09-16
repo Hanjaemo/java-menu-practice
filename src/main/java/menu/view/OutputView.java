@@ -21,18 +21,18 @@ public class OutputView {
 
     public void printCategories(List<String> categories) {
         printOpeningBracket();
-        System.out.println("카테고리 ");
+        System.out.print(" 카테고리 ");
         categories.forEach(category ->
-                System.out.println("| " + category + " ")
+                System.out.print("| " + category + " ")
         );
         printClosingBracket();
     }
 
     public void printMenusForCoach(String coach, List<String> menus) {
         printOpeningBracket();
-        System.out.println(" " + coach + " ");
+        System.out.print(" " + coach + " ");
         menus.forEach(menu -> 
-                System.out.println("| " + menu + " ")
+                System.out.print("| " + menu + " ")
         );
         printClosingBracket();
     }
