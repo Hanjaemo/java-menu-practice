@@ -50,6 +50,10 @@ public class Coach {
         return Collections.unmodifiableList(menus);
     }
 
+    public String getName() {
+        return name;
+    }
+
     private boolean contains(String menu) {
         return unwanted.contains(menu);
     }
