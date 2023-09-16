@@ -19,6 +19,7 @@ class RecommendServiceTest {
     @AfterEach
     void clear() {
         CoachRepository.clear();
+        RecommendResult.clear();
     }
 
     private final RecommendService recommendService = new RecommendService(new RandomNumberGenerator());

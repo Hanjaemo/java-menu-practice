@@ -24,4 +24,8 @@ public class RecommendResult {
                 .count();
         return recommendedCount > CATEGORY_RECOMMENDATION_LIMIT;
     }
+
+    public static void clear() {
+        categories.clear();
+    }
 }
