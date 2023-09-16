@@ -19,4 +19,8 @@ public class CoachRepository {
     public static List<Coach> coaches() {
         return Collections.unmodifiableList(coaches);
     }
+
+    public static void clear() {
+        coaches.clear();
+    }
 }
