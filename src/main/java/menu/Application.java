@@ -1,6 +1,7 @@
 package menu;
 
 import menu.controller.RecommendController;
+import menu.domain.CoachService;
 import menu.domain.MenuRepository;
 import menu.domain.RandomNumberGenerator;
 import menu.domain.RecommendService;
@@ -12,6 +13,7 @@ public class Application {
         MenuRepository.init(new MenuConfig());
         RecommendController controller = new RecommendController(
                 new RecommendService(new RandomNumberGenerator()),
+                new CoachService(),
                 new InputView(),
                 new OutputView()
         );

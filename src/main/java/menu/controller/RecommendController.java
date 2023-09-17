@@ -6,7 +6,7 @@ import menu.MenuConfig;
 import menu.domain.Category;
 import menu.domain.Coach;
 import menu.domain.CoachRepository;
-import menu.domain.MenuRepository;
+import menu.domain.CoachService;
 import menu.domain.RecommendResult;
 import menu.domain.RecommendService;
 import menu.view.InputView;
@@ -17,32 +17,35 @@ public class RecommendController {
     private static final int DAYS = 5;
 
     private final RecommendService recommendService;
+    private final CoachService coachService;
     private final InputView inputView;
     private final OutputView outputView;
 
     public RecommendController(RecommendService recommendService,
+                               CoachService coachService,
                                InputView inputView,
                                OutputView outputView) {
         this.recommendService = recommendService;
+        this.coachService = coachService;
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
     public void start() {
-
-        outputView.printStartMessage();
+        printStartMessage();
         saveCoaches();
         addUnwantedForCoaches();
         recommend();
         printResult();
-        outputView.printEndMessage();
+        printEndMessage();
     }
 
-    private void recommend() {
-        for (int i = 0; i < DAYS; i++) {
-            recommendService.recommendCategory();
-            recommendService.recommendMenu(RecommendResult.categories().get(i));
-        }
+    private void printStartMessage() {
+        outputView.printStartMessage();
+    }
+
+    private void saveCoaches() {
+        coachService.saveCoach(inputView.readCoaches());
     }
 
     private void printResult() {
@@ -66,10 +69,14 @@ public class RecommendController {
                 .forEach(coach -> inputView.readUnwanted(coach.getName()));
     }
 
-    private void saveCoaches() {
-        inputView.readCoaches()
-                .forEach(coach -> 
-                        CoachRepository.save(new Coach(coach))
-                );
+    private void recommend() {
+        for (int i = 0; i < DAYS; i++) {
+            recommendService.recommendCategory();
+            recommendService.recommendMenu(RecommendResult.categories().get(i));
+        }
+    }
+
+    private void printEndMessage() {
+        outputView.printEndMessage();
     }
 }
