@@ -2,7 +2,6 @@ package menu.controller;
 
 import java.util.stream.Collectors;
 
-import menu.MenuConfig;
 import menu.domain.Category;
 import menu.domain.Coach;
 import menu.domain.CoachRepository;
@@ -48,6 +47,20 @@ public class RecommendController {
         coachService.saveCoach(inputView.readCoaches());
     }
 
+    private void addUnwantedForCoaches() {
+        CoachRepository.coaches()
+                .forEach(coach ->
+                        coachService.addUnwantedForCoaches(coach, inputView.readUnwanted(coach.getName()))
+                );
+    }
+
+    private void recommend() {
+        for (int day = 0; day < DAYS; day++) {
+            recommendService.recommendCategory();
+            recommendService.recommendMenu(RecommendResult.getCategoryOfDay(day));
+        }
+    }
+
     private void printResult() {
         outputView.printResultMessage();
         outputView.printWeek();
@@ -62,18 +75,6 @@ public class RecommendController {
     private void printMenus() {
         CoachRepository.coaches()
                 .forEach(coach -> outputView.printMenusForCoach(coach.getName(), coach.menus()));
-    }
-
-    private void addUnwantedForCoaches() {
-        CoachRepository.coaches()
-                .forEach(coach -> inputView.readUnwanted(coach.getName()));
-    }
-
-    private void recommend() {
-        for (int i = 0; i < DAYS; i++) {
-            recommendService.recommendCategory();
-            recommendService.recommendMenu(RecommendResult.categories().get(i));
-        }
     }
 
     private void printEndMessage() {

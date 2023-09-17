@@ -14,6 +14,10 @@ public class RecommendResult {
         return Collections.unmodifiableList(categories);
     }
 
+    public static Category getCategoryOfDay(int index) {
+        return categories().get(index);
+    }
+
     public static void addCategory(Category category) {
         categories.add(category);
     }

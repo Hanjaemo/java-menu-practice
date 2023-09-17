@@ -9,4 +9,8 @@ public class CoachService {
                 CoachRepository.save(new Coach(coach))
         );
     }
+
+    public void addUnwantedForCoaches(Coach coach, List<String> unwanted) {
+        unwanted.forEach(coach::addUnwanted);
+    }
 }
