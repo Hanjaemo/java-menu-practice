@@ -14,20 +14,22 @@ import menu.view.OutputView;
 
 public class RecommendController {
 
-    private final MenuConfig menuConfig;
+    private static final int DAYS = 5;
+
     private final RecommendService recommendService;
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RecommendController(MenuConfig menuConfig, RecommendService recommendService, InputView inputView, OutputView outputView) {
-        this.menuConfig = menuConfig;
+    public RecommendController(RecommendService recommendService,
+                               InputView inputView,
+                               OutputView outputView) {
         this.recommendService = recommendService;
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
     public void start() {
-        MenuRepository.init(menuConfig);
+
         outputView.printStartMessage();
         saveCoaches();
         addUnwantedForCoaches();
@@ -37,7 +39,7 @@ public class RecommendController {
     }
 
     private void recommend() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < DAYS; i++) {
             recommendService.recommendCategory();
             recommendService.recommendMenu(RecommendResult.categories().get(i));
         }
