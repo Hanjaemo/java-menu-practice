@@ -23,7 +23,6 @@ public enum Category {
         return Arrays.stream(Category.values())
                 .filter(category -> category.number == number)
                 .findFirst();
-//                .orElseThrow(() -> new NoSuchElementException("[ERROR] 존재하지 않는 카테고리입니다."));
     }
 
     public String getName() {
