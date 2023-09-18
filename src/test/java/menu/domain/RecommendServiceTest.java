@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import menu.MenuConfig;
 import menu.domain.coach.Coach;
+import menu.domain.coach.CoachName;
 import menu.domain.coach.CoachRepository;
 import menu.domain.menu.Category;
 import menu.domain.menu.MenuRepository;

@@ -2,6 +2,8 @@ package menu.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Set;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +33,7 @@ class CoachTest {
         Coach coach = new Coach("토미");
 
         // when
-        coach.addUnwanted("불고기");
+        coach.addUnwanted(Set.of("불고기"));
 
         // then
         assertThat(coach.unwanted()).contains("불고기");
@@ -44,7 +46,7 @@ class CoachTest {
         Coach coach = new Coach("토미");
 
         // when, then
-        assertThatThrownBy(() -> coach.addUnwanted("오이무침"))
+        assertThatThrownBy(() -> coach.addUnwanted(Set.of("오이무침")))
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
@@ -54,11 +56,11 @@ class CoachTest {
     void addUnwanted_Fail_ByOutOfBounds() {
         // given
         Coach coach = new Coach("토미");
-        coach.addUnwanted("불고기");
-        coach.addUnwanted("분짜");
+        coach.addUnwanted(Set.of("불고기"));
+        coach.addUnwanted(Set.of("분짜"));
 
         // when, then
-        assertThatThrownBy(() -> coach.addUnwanted("짜장면"))
+        assertThatThrownBy(() -> coach.addUnwanted(Set.of("짜장면")))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -67,10 +69,10 @@ class CoachTest {
     void addUnwanted_Fail_ByDuplicated() {
         // given
         Coach coach = new Coach("토미");
-        coach.addUnwanted("불고기");
+        coach.addUnwanted(Set.of("불고기"));
 
         // when, then
-        assertThatThrownBy(() -> coach.addUnwanted("불고기"))
+        assertThatThrownBy(() -> coach.addUnwanted(Set.of("불고기")))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

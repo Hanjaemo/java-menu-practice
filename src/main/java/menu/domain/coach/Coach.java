@@ -11,8 +11,8 @@ public class Coach {
     private Unwanted unwanted;
     private final List<String> menus = new ArrayList<>();
 
-    public Coach(CoachName name) {
-        this.name = name;
+    public Coach(String name) {
+        this.name = new CoachName(name);
     }
 
     public void addUnwanted(Set<String> unwanted) {
