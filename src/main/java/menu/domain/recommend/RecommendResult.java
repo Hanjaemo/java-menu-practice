@@ -9,8 +9,10 @@ import menu.domain.menu.Category;
 public class RecommendResult {
 
     private static final int CATEGORY_RECOMMENDATION_LIMIT = 2;
-
     private static final List<Category> categories = new ArrayList<>();
+
+    private RecommendResult() {
+    }
 
     public static List<Category> categories() {
         return Collections.unmodifiableList(categories);
@@ -29,9 +31,5 @@ public class RecommendResult {
                 .filter(c -> c == category)
                 .count();
         return recommendedCount > CATEGORY_RECOMMENDATION_LIMIT;
-    }
-
-    public static void clear() {
-        categories.clear();
     }
 }

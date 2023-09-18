@@ -3,7 +3,6 @@ package menu.controller;
 import java.util.stream.Collectors;
 
 import menu.domain.menu.Category;
-import menu.domain.coach.CoachRepository;
 import menu.domain.coach.CoachService;
 import menu.domain.recommend.RecommendResult;
 import menu.domain.recommend.RecommendService;
