@@ -25,9 +25,7 @@ public class RecommendService {
 
     public void recommendMenu(Category category) {
         List<Coach> coaches = CoachRepository.coaches();
-        for (Coach coach : coaches) {
-            addMenu(category, coach);
-        }
+        coaches.forEach(coach -> addMenu(category, coach));
     }
 
     private void addMenu(Category category, Coach coach) {
