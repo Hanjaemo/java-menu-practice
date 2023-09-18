@@ -8,6 +8,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import menu.MenuConfig;
+import menu.domain.coach.Coach;
+import menu.domain.coach.CoachRepository;
+import menu.domain.menu.Category;
+import menu.domain.menu.MenuRepository;
+import menu.domain.recommend.RecommendResult;
+import menu.domain.recommend.RecommendService;
+import menu.utils.RandomNumberGenerator;
 
 class RecommendServiceTest {
 

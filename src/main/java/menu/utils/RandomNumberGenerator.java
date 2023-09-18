@@ -1,6 +1,7 @@
-package menu.domain;
+package menu.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.utils.NumberGenerator;
 
 public class RandomNumberGenerator implements NumberGenerator {
 

@@ -1,13 +1,13 @@
-package menu.domain;
+package menu.domain.coach;
 
-public class Name {
+public class CoachName {
 
     private static final int MIN_NAME_LENGTH = 2;
     private static final int MAX_NAME_LENGTH = 4;
 
     private String name;
 
-    public Name(String name) {
+    public CoachName(String name) {
         validate(name);
         this.name = name;
     }

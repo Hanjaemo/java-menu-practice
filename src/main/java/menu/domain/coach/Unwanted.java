@@ -1,8 +1,10 @@
-package menu.domain;
+package menu.domain.coach;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
+import menu.domain.menu.MenuRepository;
 
 public class Unwanted {
 

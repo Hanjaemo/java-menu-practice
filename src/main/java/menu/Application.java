@@ -1,10 +1,10 @@
 package menu;
 
 import menu.controller.RecommendController;
-import menu.domain.CoachService;
-import menu.domain.MenuRepository;
-import menu.domain.RandomNumberGenerator;
-import menu.domain.RecommendService;
+import menu.domain.coach.CoachService;
+import menu.domain.menu.MenuRepository;
+import menu.utils.RandomNumberGenerator;
+import menu.domain.recommend.RecommendService;
 import menu.view.InputView;
 import menu.view.OutputView;
 

@@ -2,12 +2,11 @@ package menu.controller;
 
 import java.util.stream.Collectors;
 
-import menu.domain.Category;
-import menu.domain.Coach;
-import menu.domain.CoachRepository;
-import menu.domain.CoachService;
-import menu.domain.RecommendResult;
-import menu.domain.RecommendService;
+import menu.domain.menu.Category;
+import menu.domain.coach.CoachRepository;
+import menu.domain.coach.CoachService;
+import menu.domain.recommend.RecommendResult;
+import menu.domain.recommend.RecommendService;
 import menu.view.InputView;
 import menu.view.OutputView;
 

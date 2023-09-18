@@ -8,6 +8,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import menu.domain.coach.Coach;
+import menu.domain.coach.CoachRepository;
+
 class CoachRepositoryTest {
 
     @AfterEach

@@ -1,8 +1,10 @@
-package menu.domain;
+package menu.domain.recommend;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import menu.domain.menu.Category;
 
 public class RecommendResult {
 

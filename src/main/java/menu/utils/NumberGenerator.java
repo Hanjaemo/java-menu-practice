@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.utils;
 
 public interface NumberGenerator {
 

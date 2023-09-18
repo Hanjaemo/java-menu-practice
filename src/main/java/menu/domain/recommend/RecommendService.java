@@ -1,9 +1,14 @@
-package menu.domain;
+package menu.domain.recommend;
 
 import java.util.List;
 import java.util.Optional;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import menu.utils.NumberGenerator;
+import menu.domain.coach.Coach;
+import menu.domain.coach.CoachRepository;
+import menu.domain.menu.Category;
+import menu.domain.menu.MenuRepository;
 
 public class RecommendService {
 

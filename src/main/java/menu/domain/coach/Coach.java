@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.coach;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,11 +7,11 @@ import java.util.Set;
 
 public class Coach {
 
-    private Name name;
+    private CoachName name;
     private Unwanted unwanted;
     private final List<String> menus = new ArrayList<>();
 
-    public Coach(Name name) {
+    public Coach(CoachName name) {
         this.name = name;
     }
 
