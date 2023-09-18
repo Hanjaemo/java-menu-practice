@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class CoachRepository {
 
+    private static final int MIN_SIZE = 2;
+    private static final int MAX_SIZE = 5;
     private static final List<Coach> coaches = new ArrayList<>();
 
     public static void save(List<String> inputCoaches) {
@@ -35,6 +37,6 @@ public class CoachRepository {
     }
 
     private static boolean outOfBounds(List<String> coaches) {
-        return !(2 <= coaches.size() && coaches.size() <= 5);
+        return !(MIN_SIZE <= coaches.size() && coaches.size() <= MAX_SIZE);
     }
 }
