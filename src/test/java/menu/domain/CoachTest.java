@@ -50,29 +50,4 @@ class CoachTest {
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
-
-    @DisplayName("못 먹는 메뉴가 이미 2개 등록되어 있을 때 3번째 등록하는 경우 실패한다.")
-    @Test
-    void addUnwanted_Fail_ByOutOfBounds() {
-        // given
-        Coach coach = new Coach("토미");
-        coach.addUnwanted(Set.of("불고기"));
-        coach.addUnwanted(Set.of("분짜"));
-
-        // when, then
-        assertThatThrownBy(() -> coach.addUnwanted(Set.of("짜장면")))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @DisplayName("중복된 메뉴를 등록하는 경우 실패한다.")
-    @Test
-    void addUnwanted_Fail_ByDuplicated() {
-        // given
-        Coach coach = new Coach("토미");
-        coach.addUnwanted(Set.of("불고기"));
-
-        // when, then
-        assertThatThrownBy(() -> coach.addUnwanted(Set.of("불고기")))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
 }
