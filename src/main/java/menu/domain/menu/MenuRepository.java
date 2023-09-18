@@ -1,0 +1,44 @@
+package menu.domain.menu;
+
+import static menu.domain.menu.Category.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import menu.MenuConfig;
+
+public class MenuRepository {
+
+    private static final Map<Category, Menus> menusByCategory = new HashMap<>();
+
+    private MenuRepository() {
+    }
+
+    public static void init(MenuConfig menuConfig) {
+        menusByCategory.put(JAPANESE, new Menus(menuConfig.japaneseMenus()));
+        menusByCategory.put(KOREAN, new Menus(menuConfig.koreanMenus()));
+        menusByCategory.put(CHINESE, new Menus(menuConfig.chineseMenus()));
+        menusByCategory.put(ASIAN, new Menus(menuConfig.asianMenus()));
+        menusByCategory.put(WESTERN, new Menus(menuConfig.westernMenus()));
+    }
+
+    public static boolean contains(String menu) {
+        List<Menus> values = menusByCategory.values()
+                .stream()
+                .collect(Collectors.toUnmodifiableList());
+
+        return values.stream()
+                .anyMatch(menus -> menus.contains(menu));
+    }
+
+    public static List<String> get(Category category) {
+        return toList(menusByCategory.get(category));
+    }
+
+    private static ArrayList<String> toList(Menus menus) {
+        return new ArrayList<>(menus.getMenus());
+    }
+}
