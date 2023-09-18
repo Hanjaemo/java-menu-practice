@@ -18,12 +18,12 @@ public class CoachRepository {
                 .collect(Collectors.toList()));
     }
 
-    public static int size() {
-        return coaches.size();
-    }
-
     public static List<Coach> coaches() {
         return Collections.unmodifiableList(coaches);
+    }
+
+    public static int size() {
+        return coaches.size();
     }
 
     public static void clear() {

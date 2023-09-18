@@ -47,7 +47,7 @@ public class RecommendController {
     }
 
     private void addUnwantedForCoaches() {
-        CoachRepository.coaches()
+        coachService.coaches()
                 .forEach(coach ->
                         coachService.addUnwantedForCoaches(coach, inputView.readUnwanted(coach.getName()))
                 );
@@ -72,7 +72,7 @@ public class RecommendController {
     }
 
     private void printMenus() {
-        CoachRepository.coaches()
+        coachService.coaches()
                 .forEach(coach -> outputView.printMenusForCoach(coach.getName(), coach.menus()));
     }
 
