@@ -6,9 +6,7 @@ import java.util.Set;
 public class CoachService {
 
     public void saveCoach(List<String> coaches) {
-        coaches.forEach(coach ->
-                CoachRepository.save(new Coach(coach))
-        );
+        CoachRepository.save(coaches);
     }
 
     public void addUnwantedForCoaches(Coach coach, Set<String> unwanted) {

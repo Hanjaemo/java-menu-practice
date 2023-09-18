@@ -26,7 +26,7 @@ class CoachRepositoryTest {
         List<String> inputCoaches = List.of("토미", "제임스", "포코");
 
         // when
-        inputCoaches.forEach(coach -> CoachRepository.save(new Coach(coach)));
+        CoachRepository.save(inputCoaches);
 
         // then
         assertThat(CoachRepository.size()).isEqualTo(3);
@@ -39,11 +39,7 @@ class CoachRepositoryTest {
         List<String> inputCoaches = List.of("잼", "토미", "제임스포코");
 
         // when, then
-        assertThatThrownBy(
-                () -> inputCoaches.forEach(
-                        coach -> CoachRepository.save(new Coach(coach))
-                )
-        )
+        assertThatThrownBy(() -> CoachRepository.save(inputCoaches))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

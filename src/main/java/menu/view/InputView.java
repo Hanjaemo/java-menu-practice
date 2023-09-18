@@ -15,10 +15,8 @@ public class InputView {
     public List<String> readCoaches() {
         System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
         String input = Console.readLine();
-        List<String> coaches = Arrays.stream(input.split(DELIMITER))
+        return Arrays.stream(input.split(DELIMITER))
                 .collect(Collectors.toList());
-        validate(coaches);
-        return coaches;
     }
 
     public Set<String> readUnwanted(String coachName) {
@@ -26,15 +24,5 @@ public class InputView {
         String input = Console.readLine();
         return Arrays.stream(input.split(DELIMITER))
                 .collect(Collectors.toSet());
-    }
-
-    private void validate(List<String> coaches) {
-        if (outOfBounds(coaches)) {
-            throw new IllegalArgumentException("[ERROR] 코치는 최소 2명, 최대 5명이어야 합니다.");
-        }
-    }
-
-    private boolean outOfBounds(List<String> coaches) {
-        return 2 <= coaches.size() && coaches.size() <= 5;
     }
 }
