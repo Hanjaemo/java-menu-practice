@@ -18,11 +18,11 @@ public class MenuRepository {
     }
 
     public static void init(MenuConfig menuConfig) {
-        menusByCategory.put(JAPANESE, new Menus(menuConfig.getJapaneseMenus()));
-        menusByCategory.put(KOREAN, new Menus(menuConfig.getKoreanMenus()));
-        menusByCategory.put(CHINESE, new Menus(menuConfig.getChineseMenus()));
-        menusByCategory.put(ASIAN, new Menus(menuConfig.getAsianMenus()));
-        menusByCategory.put(WESTERN, new Menus(menuConfig.getWesternMenus()));
+        menusByCategory.put(JAPANESE, new Menus(menuConfig.japaneseMenus()));
+        menusByCategory.put(KOREAN, new Menus(menuConfig.koreanMenus()));
+        menusByCategory.put(CHINESE, new Menus(menuConfig.chineseMenus()));
+        menusByCategory.put(ASIAN, new Menus(menuConfig.asianMenus()));
+        menusByCategory.put(WESTERN, new Menus(menuConfig.westernMenus()));
     }
 
     public static boolean contains(String menu) {
