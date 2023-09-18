@@ -11,6 +11,9 @@ public class CoachRepository {
     private static final int MAX_SIZE = 5;
     private static final List<Coach> coaches = new ArrayList<>();
 
+    private CoachRepository() {
+    }
+
     public static void save(List<String> inputCoaches) {
         validate(inputCoaches);
         coaches.addAll(inputCoaches.stream()

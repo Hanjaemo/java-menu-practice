@@ -14,6 +14,9 @@ public class MenuRepository {
 
     private static final Map<Category, Menus> menusByCategory = new HashMap<>();
 
+    private MenuRepository() {
+    }
+
     public static void init(MenuConfig menuConfig) {
         menusByCategory.put(JAPANESE, new Menus(menuConfig.getJapaneseMenus()));
         menusByCategory.put(KOREAN, new Menus(menuConfig.getKoreanMenus()));
