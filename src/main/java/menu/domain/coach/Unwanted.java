@@ -9,11 +9,12 @@ import menu.domain.menu.MenuRepository;
 public class Unwanted {
 
     private static final int MAX_UNWANTED_SIZE = 2;
+    private static final String BLANK = "";
 
     private final Set<String> unwanted = new HashSet<>();
 
     public Unwanted(Set<String> unwanted) {
-        if (unwanted.contains("")) {
+        if (unwanted.contains(BLANK)) {
             return;
         }
         validate(unwanted);
@@ -26,9 +27,8 @@ public class Unwanted {
 
     private void validate(Set<String> unwanted) {
         validateOverSize(unwanted);
-        for (String unwantedMenu : unwanted) {
-            validateExists(unwantedMenu);
-            validateDuplicated(unwantedMenu);
+        for (String once : unwanted) {
+            validateExists(once);
         }
     }
 
@@ -50,15 +50,5 @@ public class Unwanted {
 
     private boolean containsMenuRepositoryFail(String menu) {
         return !MenuRepository.contains(menu);
-    }
-
-    private void validateDuplicated(String unwantedMenu) {
-        if (contains(unwantedMenu)) {
-            throw new IllegalArgumentException("[ERROR] 중복되는 메뉴를 등록할 수 없습니다.");
-        }
-    }
-
-    private boolean contains(String menu) {
-        return unwanted.contains(menu);
     }
 }
